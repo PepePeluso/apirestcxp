@@ -9,7 +9,6 @@ const router = Router()
 
 router.get("/", (req,res) => {res.send("Welcome API Rest CXP!!!!")})
 router.get("/cxp", getCXP)
-router.get("/cxp/:prov_dni",getCXPByProvDNI)
 router.get("/cxp/cabecera/",getCabeceraPago)
 router.post("/cxp/cabecera/",postCreateCabeceraPago)
 router.put("/cxp/cabecera/",putUpdateCabeceraPago)
@@ -25,6 +24,7 @@ router.put("/cxp/fuentepago/",putUpdateFuentePago)
 router.delete("/cxp/fuentepago",deleteFuentePago)
 router.get("/cxp/fuentepago/:idfuente",getFuentePagoById)
 router.get("/cxp/tipopago/",getTipoPago)
+router.get("/cxp/:prov_dni",getCXPByProvDNI)
 
 
 module.exports = router
