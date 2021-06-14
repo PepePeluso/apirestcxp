@@ -9,7 +9,7 @@ const router = Router()
 
 router.get("/", (req,res) => {res.send("Welcome API Rest CXP!!!!")})
 router.get("/cxp", getCXP)
-router.get("/cxp/:prov_id",getCXPByProvDNI)
+router.get("/cxp/:prov_dni",getCXPByProvDNI)
 router.get("/cxp/cabecera/",getCabeceraPago)
 router.post("/cxp/cabecera/",postCreateCabeceraPago)
 router.put("/cxp/cabecera/",putUpdateCabeceraPago)
