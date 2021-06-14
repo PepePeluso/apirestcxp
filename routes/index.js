@@ -2,12 +2,14 @@ const {Router} = require("express")
 const { getCXP, getCabeceraPago, getCabeceraPagoById, getDetallePagoById,
     postCreateCabeceraPago, postCreateDetallePago, putUpdateCabeceraPago, 
     putUpdateDetallePago, deleteCabeceraPago, deleteDetallePago,
-    getFuentePago, getFuentePagoById, getTipoPago, postCreateFuentePago, putUpdateFuentePago, deleteFuentePago} = require("../controllers/cxp_controllers")
+    getFuentePago, getFuentePagoById, getTipoPago, postCreateFuentePago,
+    putUpdateFuentePago, deleteFuentePago, getCXPByProvDNI} = require("../controllers/cxp_controllers")
 
 const router = Router()
 
 router.get("/", (req,res) => {res.send("Welcome API Rest CXP!!!!")})
 router.get("/cxp", getCXP)
+router.get("/cxp/:prov_id",getCXPByProvDNI)
 router.get("/cxp/cabecera/",getCabeceraPago)
 router.post("/cxp/cabecera/",postCreateCabeceraPago)
 router.put("/cxp/cabecera/",putUpdateCabeceraPago)

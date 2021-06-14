@@ -17,6 +17,27 @@ const getCXP = async (req,res) => {
         })
     }
 }
+
+const getCXPByProvDNI = async (req,res) => {
+    const prov_dni = req.params.prov_dni
+    try {
+        const cabecerapago = await db.query('SELECT idcabecera, descripcionpago, prov_dni, idfuente,\
+        fechapago FROM cabecerapago where cp_active=true and prov_dni=$1 order by idcabecera;',
+        [prov_dni])
+        for (let i = 0; i < cabecerapago.length; i++) {
+            let detalle = await db.query("SELECT * FROM detallepago WHERE idcabecera = $1;",
+                [cabecerapago[i].idcabecera])
+            cabecerapago[i].detalle = detalle
+        }
+        res.json(cabecerapago)
+    } catch (e) {
+        res.json({
+            code: e.code,
+            message: e.message
+        })
+    }
+}
+
 const getDetallePagoById = async (req, res)=>{
     const idcabecera = req.params.idcabecera
     try {
@@ -276,5 +297,6 @@ module.exports = {
     getTipoPago,
     postCreateFuentePago,
     putUpdateFuentePago,
-    deleteFuentePago
+    deleteFuentePago,
+    getCXPByProvDNI
 }
