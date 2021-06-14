@@ -1,11 +1,11 @@
 const pgPromise = require("pg-promise")
 
 const config = {
-    host: 'bddcxpad.postgres.database.azure.com',
+    host: 'be9r11xwpjzo2o4vhbg0-postgresql.services.clever-cloud.com',
     port: '5432',
-    database: 'cxp',
-    user: 'cuentasporpagar@bddcxpad',
-    password: '@6iDp^M@aGda6zG2Ns9'
+    database: 'be9r11xwpjzo2o4vhbg0',
+    user: 'ulieqq6ghznx3icje31e',
+    password: 'GXFAI5JlcSLFCm5HPbWH'
 }
 
 const pgp = pgPromise({})
