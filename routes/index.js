@@ -3,7 +3,7 @@ const { getCXP, getCabeceraPago, getCabeceraPagoById, getDetallePagoById,
     postCreateCabeceraPago, postCreateDetallePago, putUpdateCabeceraPago, 
     putUpdateDetallePago, deleteCabeceraPago, deleteDetallePago,
     getFuentePago, getFuentePagoById, getTipoPago, postCreateFuentePago,
-    putUpdateFuentePago, deleteFuentePago, getCXPByProvDNI} = require("../controllers/cxp_controllers")
+    putUpdateFuentePago, deleteFuentePago, getCXPByProvDNI, printFactura} = require("../controllers/cxp_controllers")
 
 const router = Router()
 
@@ -25,6 +25,7 @@ router.delete("/cxp/fuentepago",deleteFuentePago)
 router.get("/cxp/fuentepago/:idfuente",getFuentePagoById)
 router.get("/cxp/tipopago/",getTipoPago)
 router.get("/cxp/:prov_dni",getCXPByProvDNI)
+router.put("/cxp/cabecera/:idcabecera",printFactura)
 
 
 module.exports = router

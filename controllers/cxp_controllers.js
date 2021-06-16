@@ -281,6 +281,24 @@ const deleteFuentePago = async (req, res) => {
     }
 }
 
+const printFactura = async (req, res) => {
+    const idcabecera = req.params.idcabecera
+    const {facturaprint} = req.query
+    try {
+        const body = await db.query("UPDATE cabecerapago SET facturaprint=$2 where idcabecera=\
+        $1 returning *;",[idcabecera,facturaprint])
+        res.json({
+            message: 'Cabecera editada impresión con exito',
+            body
+        })
+    } catch (e) {
+        res.json({
+            code: e.code,
+            message: e.message
+        })
+    }
+}
+
 module.exports = {
     getCXP,
     getCabeceraPago,
@@ -298,5 +316,6 @@ module.exports = {
     postCreateFuentePago,
     putUpdateFuentePago,
     deleteFuentePago,
-    getCXPByProvDNI
+    getCXPByProvDNI,
+    printFactura
 }
